@@ -1,3 +1,10 @@
+data "google_client_config" "current" {}
+
+provider "cdap" {
+  host  = "https://example-instance-example-project-dot-usc1.datafusion.googleusercontent.com/api/"
+  token = data.google_client_config.current.access_token
+}
+
 resource "cdap_profile" "profile" {
   name      = var.name
   label     = var.label
