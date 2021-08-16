@@ -14,15 +14,15 @@ provider "cdap" {
   token = data.google_client_config.current.access_token
 }
 
-resource "cdap_profile" "profile" {
-    name  = "dataproc112"
-    label = "dataproc112"
-    profile_provisioner {
-        name = "gcp-dataproc"
-        properties {
-            name        = "projectId"
-            value       = "dev-cs-1"
-            is_editable = false
-        }
-    }
+module "custom_dataproc" {
+  source  = "terraform-google-modules/data-fusion/google//modules/dataproc_profile"
+  version = "~> 0.1"
+
+  name   = "custom-dataproc"
+  label  = "Custom Dataproc Profile"
+
+  network         = "test"
+  subnet          = "test"
+  service_account = "test-sa"
+  gcs_bucket      = "test-bucket"
 }
