@@ -18,7 +18,7 @@ resource "cdap_profile" "profile" {
   name  = "pradeeppoc2"
   label = "pradeeppoc2"
   profile_provisioner {
-    name = "gcp-existing-dataproc"
+    name = "dataproc"
     properties {
       name        = "projectId"
       value       = "dev-cs-1"
