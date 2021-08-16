@@ -15,14 +15,14 @@ provider "cdap" {
 }
 
 resource "cdap_profile" "profile" {
-  name  = "pradeeppoc2"
-  label = "pradeeppoc2"
-  profile_provisioner {
-    name = "dataproc"
-    properties {
-      name        = "projectId"
-      value       = "dev-cs-1"
-      is_editable = true
+    name  = "dataproc112"
+    label = "dataproc112"
+    profile_provisioner {
+        name = "gcp-dataproc"
+        properties {
+            name        = "projectId"
+            value       = "dev-cs-1"
+            is_editable = false
+        }
     }
-  }
 }
