@@ -14,7 +14,7 @@ provider "cdap" {
   token = data.google_client_config.current.access_token
 }
 
-resource "cdap_profile" "test" {
+resource "cdap_profile" "profile" {
   name  = "pradeeppoc2"
   label = "pradeeppoc2"
   profile_provisioner {
