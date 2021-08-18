@@ -14,9 +14,14 @@ provider "cdap" {
   token = data.google_client_config.current.access_token
 }
 
+resource "cdap_namespace" "namespace" {
+    name = "test"
+}
+
 resource "cdap_profile" "profile" {
     name  = "dataproc112"
     label = "dataproc112"
+    namespace= "test"
     profile_provisioner {
         name = "gcp-dataproc"
         properties {
