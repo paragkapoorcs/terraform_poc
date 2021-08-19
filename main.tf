@@ -9,18 +9,16 @@ terraform {
   }
 }
 
-resource "cdap_namespace" "namespace" {
-  name = "terraformpoc"
-}
 
-resource "cdap_application" "pipeline" {
-    name = "terraformpoc"
-    spec = file("${path.module}/bq.json"
-}
 
 provider "cdap" {
   host  = "https://example-instance-example-project-dot-usc1.datafusion.googleusercontent.com/api/"
   token = data.google_client_config.current.access_token
+}
+
+
+resource "cdap_namespace" "namespace" {
+  name = "terraformpoc"
 }
 
 resource "cdap_profile" "test" {
